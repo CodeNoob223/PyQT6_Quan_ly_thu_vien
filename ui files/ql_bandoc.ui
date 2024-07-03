@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ql_bandocWindow</class>
+ <widget class="QMainWindow" name="ql_bandocWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>789</width>
+    <height>546</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Quản lý bạn đọc</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon/book_2_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/book_2_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>741</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>THÔNG TIN BẠN ĐỌC</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Tên bạn đọc</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="soDienThoai_lineEdit"/>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLineEdit" name="diaChi_lineEdit"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Số điện thoại</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Địa chỉ</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Ngày sinh</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLineEdit" name="hoTen_lineEdit"/>
+     </item>
+     <item row="1" column="1" colspan="2">
+      <widget class="QDateEdit" name="dateEdit">
+       <property name="displayFormat">
+        <string>yyyy-MM-dd</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>145</y>
+      <width>741</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>THAO TÁC</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="them_pushButton">
+       <property name="text">
+        <string>Thêm</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/add_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/add_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="capNhat_pushButton">
+       <property name="text">
+        <string>Cập nhật</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/sync_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/sync_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="chon_pushButton">
+       <property name="text">
+        <string>Chọn</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/check_box_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/check_box_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="timKiem_pushButton">
+       <property name="text">
+        <string>Tìm kiếm</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/search_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/search_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QPushButton" name="clear_pushButton">
+       <property name="text">
+        <string>Làm trống</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/backspace_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/backspace_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QPushButton" name="xoa_pushButton">
+       <property name="text">
+        <string>Xóa</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>220</y>
+      <width>741</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="showGrid">
+     <bool>false</bool>
+    </property>
+    <property name="columnCount">
+     <number>6</number>
+    </property>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Mã bạn đọc</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Họ tên</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Ngày sinh</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Địa chỉ</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Số điện thoại</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Ngày thêm</string>
+     </property>
+    </column>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>789</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

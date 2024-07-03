@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ql_sachWindow</class>
+ <widget class="QMainWindow" name="ql_sachWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>914</width>
+    <height>635</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Quản lý sách</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon/book_2_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/book_2_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>401</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>THÔNG TIN SÁCH</string>
+    </property>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>55</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ảnh sách</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="theLoai_comboBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>60</y>
+       <width>131</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>55</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tên sách</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>60</y>
+       <width>55</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Số lượng</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>51</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Thể loại</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="soLuong_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>60</y>
+       <width>91</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="tacGia_comboBox">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>100</y>
+       <width>131</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>51</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tác giả</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tenSach_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>20</y>
+       <width>301</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="viTri_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>100</y>
+       <width>91</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="anhSach_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>140</y>
+       <width>301</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>100</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Vị trí</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>200</y>
+      <width>681</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>THAO TÁC</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="them_pushButton">
+       <property name="text">
+        <string>Thêm</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/add_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/add_circle_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="capNhat_pushButton">
+       <property name="text">
+        <string>Cập nhật</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/sync_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/sync_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="chon_pushButton">
+       <property name="text">
+        <string>Chọn</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/check_box_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/check_box_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="timKiem_pushButton">
+       <property name="text">
+        <string>Tìm kiếm</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/search_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/search_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QPushButton" name="lamTrong_pushButton">
+       <property name="text">
+        <string>Làm trống</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/backspace_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/backspace_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="5">
+      <widget class="QPushButton" name="xoa_pushButton">
+       <property name="text">
+        <string>Xóa</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>icon/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg</normaloff>icon/delete_24dp_FILL0_wght400_GRAD0_opsz24.svg</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>891</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="showGrid">
+     <bool>false</bool>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>85</number>
+    </attribute>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>49</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>Mã sách</string>
+     </property>
+     <property name="textAlignment">
+      <set>AlignCenter</set>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tên sách</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Thể loại</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tác giả</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Số lượng</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Vị trí</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Tóm tắt</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Ảnh sách</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Ngày thêm</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Ngày cập nhật</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>10</y>
+      <width>261</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>TÓMT TẮT NỘI DUNG</string>
+    </property>
+    <widget class="QTextEdit" name="tomTat_textEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>241</width>
+       <height>151</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>10</y>
+      <width>191</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>ẢNH SÁCH</string>
+    </property>
+    <widget class="QLabel" name="image_label">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>191</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../Pictures/Saved Pictures/loading-load.gif</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>914</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

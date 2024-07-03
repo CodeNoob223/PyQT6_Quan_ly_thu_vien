@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mainWindow</class>
+ <widget class="QWidget" name="mainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>474</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Trang chủ</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon/donga.jpg</normaloff>icon/donga.jpg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>90</y>
+     <width>461</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>C:/Users/nguye/OneDrive/Hình ảnh/TOTO-100-scaled.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>761</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(0, 119, 182,1)
+
+</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>20</y>
+      <width>531</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sitka</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white</string>
+    </property>
+    <property name="text">
+     <string>QUẢN LÝ THƯ VIỆN TRƯỜNG ĐẠI HỌC</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="sach_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>405</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quản lý sách</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="viPham_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>307</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quản lý vi phạm</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="tacGia_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>209</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quản lý tác giả</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="theLoai_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>356</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quản lý thể loại</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="muonTra_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>111</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lịch sử mượn trả</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="admin_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>258</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quản lý Admin</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="banDoc_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>160</y>
+     <width>171</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quản lý bạn đọc</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
