@@ -10,7 +10,7 @@
 
 ### DBMS:
 - MySQL
-- `ql_sach.sql`
+- `ql_thuvien.sql`
 
 ### Convert .ui -> .py:
 ```bash
