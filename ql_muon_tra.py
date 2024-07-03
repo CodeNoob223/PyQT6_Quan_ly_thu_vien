@@ -20,7 +20,9 @@ class FormQLMuonTra(QMainWindow):
         self.db = ConnectDB()
 
         self.maTheMuon = 0
-        self.maTheMuon_Line = self.ui.mathemuon_QLineEdit
+        self.maRow = self.ui.maRow
+        self.soLuongRow = self.ui.soLuongRow
+
         self.maBanDoc = self.ui.maBanDoc_comboBox
         self.timBanDoc = self.ui.timBanDoc_lineEdit
         self.maBanDoc.setValidator(QIntValidator())
@@ -192,13 +194,11 @@ class FormQLMuonTra(QMainWindow):
             btn.setProperty('enabled', True)
 
     def select_the_muon_tra(self):
-        # Function to select and populate student information in the form
-        self.clear_data()
         select_row = self.result_table.currentRow()
         if select_row != -1:
             self.maTheMuon = int(self.result_table.item(
                 select_row, 0).text().strip())
-            self.maTheMuon_Line.setText("Mã: #" + self.maTheMuon)
+            self.maRow.setText("Mã: #" + str(self.maTheMuon))
             maBanDoc = self.result_table.item(select_row, 1).text().strip()
             tenAdmin = self.result_table.item(select_row, 2).text().strip()
             ngayMuon = self.result_table.item(select_row, 3).text().strip()
@@ -430,6 +430,7 @@ class FormQLMuonTra(QMainWindow):
         if the_muon_data:
             self.result_table.setRowCount(0)
             self.result_table.setRowCount(len(the_muon_data))
+            self.soLuongRow.setText("Số lượng: " + str(len(the_muon_data)))
 
             for row, info in enumerate(the_muon_data):
                 sach_muon_list = self.db.get_sach_muon(info["MATHEMUON"])
@@ -456,9 +457,10 @@ class FormQLMuonTra(QMainWindow):
             self.result_table.setRowCount(0)
             return
 
-    def clear_data(self):
+    def clear_data(self, flag: bool):
         self.maTheMuon = 0
-        self.maTheMuon_Line.clear()
+        self.maRow.clear()
+        self.soLuongRow.clear()
         self.sachMuon_list = []
         self.maBanDoc.setCurrentIndex(-1)
         self.timBanDoc.clear()

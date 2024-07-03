@@ -202,12 +202,31 @@
      </property>
     </column>
    </widget>
-   <widget class="QLineEdit" name="maAdmin_QLineEdit">
+   <widget class="QLineEdit" name="maRow">
     <property name="geometry">
      <rect>
       <x>140</x>
       <y>10</y>
       <width>81</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="soLuongRow">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>10</y>
+      <width>151</width>
       <height>22</height>
      </rect>
     </property>

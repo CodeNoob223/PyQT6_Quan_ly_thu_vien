@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>766</width>
-    <height>465</height>
+    <height>484</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,30 +24,79 @@
       <x>20</x>
       <y>10</y>
       <width>721</width>
-      <height>53</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
      <string>THÔNG TIN TÁC GIẢ</string>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Bút danh</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="butDanh_lineEdit"/>
-     </item>
-    </layout>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>30</y>
+       <width>50</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bút danh</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="butDanh_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>69</x>
+       <y>30</y>
+       <width>640</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="maRow">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>0</y>
+       <width>81</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="soLuongRow">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>0</y>
+       <width>151</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>65</y>
+      <y>80</y>
       <width>721</width>
       <height>71</height>
      </rect>
@@ -128,7 +177,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>150</y>
+      <y>160</y>
       <width>721</width>
       <height>261</height>
      </rect>
@@ -168,7 +217,7 @@
      <x>0</x>
      <y>0</y>
      <width>766</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

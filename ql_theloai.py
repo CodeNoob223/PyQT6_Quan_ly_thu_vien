@@ -17,6 +17,8 @@ class ql_theloai(QMainWindow):
         self.db = ConnectDatabase()
 
         # Connect UI elements to class variables
+        self.maRow = self.ui.maRow
+        self.soLuongRow = self.ui.soLuongRow
         self.ten = self.ui.tenTheLoai_lineEdit
         
         self.them_pushButton = self.ui.them_pushButton
@@ -114,6 +116,8 @@ class ql_theloai(QMainWindow):
 
 
     def clear_info(self):
+        self.maRow.clear()
+        self.soLuongRow.clear()
         self.ten.clear()
 
     
@@ -121,6 +125,7 @@ class ql_theloai(QMainWindow):
         select_row = self.result_table.currentRow()
         if select_row != -1:
             self.MATHELOAI = int(self.result_table.item(select_row, 0).text().strip())
+            self.maRow.setText("Mã: #" + str(self.MATHELOAI))
             ten = self.result_table.item(select_row, 1).text().strip()
 
             self.ten.setText(ten)
@@ -174,6 +179,7 @@ class ql_theloai(QMainWindow):
         if result:
             self.result_table.setRowCount(0)
             self.result_table.setRowCount(len(result))
+            self.soLuongRow.setText("Số lượng: " + str(len(result)))
 
             for row, info in enumerate(result):
                 info_list = [

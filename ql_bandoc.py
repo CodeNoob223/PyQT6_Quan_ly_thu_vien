@@ -19,6 +19,8 @@ class ql_bandoc(QMainWindow):
         self.db = ConnectDatabase()
 
         # Connect UI elements to class variables
+        self.maRow = self.ui.maRow
+        self.soLuongRow = self.ui.soLuongRow
         self.hoten = self.ui.hoTen_lineEdit
         self.ngaysinh = self.ui.dateEdit
         self.diachi = self.ui.diaChi_lineEdit
@@ -35,11 +37,17 @@ class ql_bandoc(QMainWindow):
         self.result_table.setSortingEnabled(False)
         self.button_list = self.ui.groupBox_2.findChildren(QPushButton)
 
+        # double click table
+        self.result_table.mouseDoubleClickEvent = self.custom_mouse_double_click
+
         # initialize signal-slot connections
         self.init_signal_slot()
 
         self.timKiem_info("none")
 
+    # Result table double click
+    def custom_mouse_double_click(self, event):
+        self.chon_info()
 
     def init_signal_slot(self):
         self.them_pushButton.clicked.connect(self.them_info)
@@ -124,6 +132,8 @@ class ql_bandoc(QMainWindow):
 
     def clear_info(self):
         self.hoten.clear()
+        self.maRow.clear()
+        self.soLuongRow.clear()
         self.ngaysinh.setDate(QDate.fromString("2000-01-01", "yyyy-MM-dd"))
         self.diachi.clear()
         self.sdt.clear()
@@ -133,6 +143,7 @@ class ql_bandoc(QMainWindow):
         select_row = self.result_table.currentRow()
         if select_row != -1:
             self.MABANDOC = int(self.result_table.item(select_row, 0).text().strip())
+            self.maRow.setText("Mã: #" + str(self.MABANDOC))
             hoten = self.result_table.item(select_row, 1).text().strip()
             ngaysinh = self.result_table.item(select_row, 2).text().strip()
             diachi = self.result_table.item(select_row, 3).text().strip()
@@ -198,6 +209,7 @@ class ql_bandoc(QMainWindow):
         if result:
             self.result_table.setRowCount(0)
             self.result_table.setRowCount(len(result))
+            self.soLuongRow.setText("Số lượng: " + str(len(result)))
 
             for row, info in enumerate(result):
                 info_list = [

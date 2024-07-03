@@ -17,6 +17,9 @@ class ql_admin(QMainWindow):
         self.db = ConnectDatabase()
 
         # Connect UI elements to class variables
+        self.maRow = self.ui.maRow
+        self.soLuongRow = self.ui.soLuongRow
+
         self.username = self.ui.username_lineEdit
         self.matkhau = self.ui.matkhau_lineEdit
         self.role = self.ui.role_comboBox
@@ -32,6 +35,9 @@ class ql_admin(QMainWindow):
         self.result_table.setSortingEnabled(False)
         self.button_list = self.ui.groupBox_2.findChildren(QPushButton)
 
+        # double click table
+        self.result_table.mouseDoubleClickEvent = self.custom_mouse_double_click
+
         # initialize signal-slot connections
         self.init_signal_slot()
 
@@ -46,6 +52,9 @@ class ql_admin(QMainWindow):
         self.clear_pushButton.clicked.connect(self.clear_info)
         self.xoa_pushButton.clicked.connect(self.xoa_info)
     
+    # Result table double click
+    def custom_mouse_double_click(self, event):
+        self.chon_info()
 
     def capNhat_role(self):
         role_result = self.db.get_all_role()
@@ -136,6 +145,8 @@ class ql_admin(QMainWindow):
 
 
     def clear_info(self):
+        self.maRow.clear()
+        self.soLuongRow.clear()
         self.username.clear()
         self.matkhau.clear()
         self.role.clear()
@@ -145,6 +156,7 @@ class ql_admin(QMainWindow):
         select_row = self.result_table.currentRow()
         if select_row != -1:
             self.MAADMIN = int(self.result_table.item(select_row, 0).text().strip())
+            self.maRow.setText("Mã: #" + str(self.MAADMIN))
             username = self.result_table.item(select_row, 1).text().strip()
             matkhau = self.result_table.item(select_row, 2).text().strip()
             role = self.result_table.item(select_row, 3).text().strip()
@@ -205,6 +217,7 @@ class ql_admin(QMainWindow):
         if result:
             self.result_table.setRowCount(0)
             self.result_table.setRowCount(len(result))
+            self.soLuongRow.setText("Số lượng: " + str(len(result)))
 
             for row, info in enumerate(result):
                 info_list = [

@@ -17,6 +17,8 @@ class ql_tacgia(QMainWindow):
         self.db = ConnectDatabase()
 
         # Connect UI elements to class variables
+        self.maRow = self.ui.maRow
+        self.soLuongRow = self.ui.soLuongRow
         self.butdanh = self.ui.butDanh_lineEdit
         
         self.them_pushButton = self.ui.them_pushButton
@@ -29,6 +31,9 @@ class ql_tacgia(QMainWindow):
         self.result_table = self.ui.tableWidget
         self.result_table.setSortingEnabled(False)
         self.button_list = self.ui.groupBox_2.findChildren(QPushButton)
+        
+        # double click table
+        self.result_table.mouseDoubleClickEvent = self.custom_mouse_double_click
 
         # initialize signal-slot connections
         self.init_signal_slot()
@@ -44,6 +49,9 @@ class ql_tacgia(QMainWindow):
         self.clear_pushButton.clicked.connect(self.clear_info)
         self.xoa_pushButton.clicked.connect(self.xoa_info)
     
+    # Result table double click
+    def custom_mouse_double_click(self, event):
+        self.chon_info()
     
     def them_info(self):
         self.disable_buttons()
@@ -114,6 +122,8 @@ class ql_tacgia(QMainWindow):
 
 
     def clear_info(self):
+        self.maRow.clear()
+        self.soLuongRow.clear()
         self.butdanh.clear()
 
     
@@ -121,6 +131,7 @@ class ql_tacgia(QMainWindow):
         select_row = self.result_table.currentRow()
         if select_row != -1:
             self.MATACGIA = int(self.result_table.item(select_row, 0).text().strip())
+            self.maRow.setText("Mã: #" + str(self.MATACGIA))
             butdanh = self.result_table.item(select_row, 1).text().strip()
 
             self.butdanh.setText(butdanh)
@@ -174,6 +185,7 @@ class ql_tacgia(QMainWindow):
         if result:
             self.result_table.setRowCount(0)
             self.result_table.setRowCount(len(result))
+            self.soLuongRow.setText("Số lượng: " + str(len(result)))
 
             for row, info in enumerate(result):
                 info_list = [

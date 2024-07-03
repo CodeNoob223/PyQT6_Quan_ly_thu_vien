@@ -179,12 +179,31 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="mathemuon_QLineEdit">
+    <widget class="QLineEdit" name="maRow">
      <property name="geometry">
       <rect>
        <x>130</x>
        <y>0</y>
        <width>81</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="soLuongRow">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>0</y>
+       <width>151</width>
        <height>22</height>
       </rect>
      </property>
@@ -209,7 +228,8 @@
     <zorder>label_3</zorder>
     <zorder>maBanDoc_comboBox</zorder>
     <zorder>timBanDoc_lineEdit</zorder>
-    <zorder>mathemuon_QLineEdit</zorder>
+    <zorder>maRow</zorder>
+    <zorder>soLuongRow</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">

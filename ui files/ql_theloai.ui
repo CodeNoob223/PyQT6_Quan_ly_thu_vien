@@ -24,30 +24,41 @@
       <x>20</x>
       <y>10</y>
       <width>721</width>
-      <height>53</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
      <string>THÔNG TIN THỂ LOẠI</string>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Tên thể loại</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="tenTheLoai_lineEdit"/>
-     </item>
-    </layout>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>28</y>
+       <width>68</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Tên thể loại</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="tenTheLoai_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>87</x>
+       <y>28</y>
+       <width>622</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>75</y>
+      <y>80</y>
       <width>721</width>
       <height>61</height>
      </rect>
@@ -128,7 +139,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>150</y>
+      <y>160</y>
       <width>721</width>
       <height>291</height>
      </rect>
@@ -159,6 +170,44 @@
      </property>
     </column>
    </widget>
+   <widget class="QLineEdit" name="maRow">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>10</y>
+      <width>81</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="soLuongRow">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>10</y>
+      <width>151</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -166,7 +215,7 @@
      <x>0</x>
      <y>0</y>
      <width>770</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

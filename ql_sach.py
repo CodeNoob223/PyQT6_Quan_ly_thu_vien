@@ -20,6 +20,8 @@ class FormQLSach(QMainWindow):
 
         # Connect UI elements to class variables
         self.maSach = 0
+        self.maRow = self.ui.maRow
+        self.soLuongRow = self.ui.soLuongRow
         self.tenSach = self.ui.tenSach_lineEdit
         self.viTri = self.ui.viTri_lineEdit
         self.tomTat = self.ui.tomTat_textEdit
@@ -43,6 +45,9 @@ class FormQLSach(QMainWindow):
         self.result_table.setSortingEnabled(False)
         self.buttons_list = self.ui.groupBox_2.findChildren(QPushButton)
 
+        # double click table
+        self.result_table.mouseDoubleClickEvent = self.custom_mouse_double_click
+
         # Initialize signal-slot connections
         self.init_signal_slot()
 
@@ -58,6 +63,10 @@ class FormQLSach(QMainWindow):
         self.lamTrongBtn.clicked.connect(self.clear_data)
         self.timKiemBtn.clicked.connect(self.search_sach)
         self.xoaBtn.clicked.connect(self.delete_sach)
+
+    # Result table double click
+    def custom_mouse_double_click(self, event):
+        self.select_sach_info()
 
     def attach_image(self, path : str):
         mypmap = QPixmap(path)
@@ -251,6 +260,7 @@ class FormQLSach(QMainWindow):
         select_row = self.result_table.currentRow()
         if select_row != -1:
             self.maSach = int(self.result_table.item(select_row, 0).text().strip())
+            self.maRow.setText("Mã: #" + str(self.maSach))
             tenSach = self.result_table.item(select_row, 1).text().strip()
             maTheLoai = self.result_table.item(select_row, 2).text().strip()
             maTacGia = self.result_table.item(select_row, 3).text().strip()
@@ -274,6 +284,8 @@ class FormQLSach(QMainWindow):
 
     def clear_data(self):
         self.maSach = 0
+        self.maRow.clear()
+        self.soLuongRow.clear()
         self.maTheLoai.setCurrentIndex(-1)
         self.maTacGia.setCurrentIndex(-1)
         self.soLuong.clear()
@@ -317,6 +329,7 @@ class FormQLSach(QMainWindow):
         if sach_data_list:
             self.result_table.setRowCount(0)
             self.result_table.setRowCount(len(sach_data_list))
+            self.soLuongRow.setText("Số lượng: " + str(len(sach_data_list)))
 
             for row, info in enumerate(sach_data_list):
                 info_list = [
