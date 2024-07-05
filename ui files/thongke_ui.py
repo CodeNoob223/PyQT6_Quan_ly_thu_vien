@@ -150,7 +150,7 @@ class Ui_thongKeWindow(object):
         self.nopPhat_GroupBox.setObjectName("nopPhat_GroupBox")
         self.tienPhat_lineEdit = QtWidgets.QLineEdit(parent=self.nopPhat_GroupBox)
         self.tienPhat_lineEdit.setGeometry(QtCore.QRect(10, 30, 301, 31))
-        self.tienPhat_lineEdit.setReadOnly(True)
+        self.tienPhat_lineEdit.setReadOnly(False)
         self.tienPhat_lineEdit.setObjectName("tienPhat_lineEdit")
         self.nopPhat_pushButton = QtWidgets.QPushButton(parent=self.nopPhat_GroupBox)
         self.nopPhat_pushButton.setGeometry(QtCore.QRect(320, 30, 93, 31))
