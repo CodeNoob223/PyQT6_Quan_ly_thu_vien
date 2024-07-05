@@ -7,7 +7,7 @@ class ConnectDatabase:
         self.port = 3306
         self.database = 'ql_thuvien'
         self.user = 'root'
-        self.password = '1262003'
+        self.password = ''
         self.dbname = 'ql_thuvien'
         self.con = None
         self.cursor = None
