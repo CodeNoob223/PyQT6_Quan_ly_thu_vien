@@ -1,5 +1,5 @@
 import sys
-from PyQt6.QtWidgets import QWidget, QPushButton, QMainWindow, QApplication, QFrame, QMessageBox, QTableWidgetItem
+from PyQt6.QtWidgets import QMainWindow, QApplication
 from connect_database import ConnectDatabase
 from main_ui import Ui_mainWindow
 from ql_bandoc import ql_bandoc
@@ -7,8 +7,9 @@ from ql_admin import ql_admin
 from ql_theloai import ql_theloai
 from ql_tacgia import ql_tacgia
 from ql_vipham import ql_vipham
-from ql_sach import FormQLSach
 from ql_muon_tra import FormQLMuonTra
+from ql_sach import FormQLSach
+from thongke import FormThongKe
 
 
 class main(QMainWindow):
@@ -22,6 +23,7 @@ class main(QMainWindow):
         self.db = ConnectDatabase()
 
         self.banDoc_pushButton = self.ui.banDoc_pushButton
+        self.thongKe_pushButton = self.ui.thongKe_pushButton
         self.admin_pushButton = self.ui.admin_pushButton
         self.theLoai_pushButton = self.ui.theLoai_pushButton
         self.tacGia_pushButton = self.ui.tacGia_pushButton
@@ -40,11 +42,15 @@ class main(QMainWindow):
         self.viPham_pushButton.clicked.connect(self.vipham)
         self.sach_pushButton.clicked.connect(self.sach)
         self.muonTra_pushButton.clicked.connect(self.muontra)
+        self.thongKe_pushButton.clicked.connect(self.thongke)
 
     def muontra(self):
         self.muontra_window = FormQLMuonTra()
         self.muontra_window.show()
 
+    def thongke(self):
+        self.thongke_window = FormThongKe()
+        self.thongke_window.show()
 
     def bandoc(self):
         self.ql_bandoc_window = ql_bandoc()

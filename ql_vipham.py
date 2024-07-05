@@ -20,6 +20,12 @@ class ql_vipham(QMainWindow):
         self.maRow = self.ui.maRow
         self.soLuongRow = self.ui.soLuongRow
         self.noidung = self.ui.noiDung_lineEdit
+        self.tienPhat = self.ui.tienPhat_lineEdit
+        self.tienPhat.setValidator(QIntValidator())
+
+        self.tinhTrang = self.ui.tinhTrang_comboBox
+        self.tinhTrang.setCurrentIndex(-1)
+
         self.maBanDoc = self.ui.maBanDoc_comboBox
         self.timBanDoc = self.ui.timBanDoc_lineEdit
         self.maAdmin = self.ui.maAdmin_comboBox
@@ -203,7 +209,9 @@ class ql_vipham(QMainWindow):
             vipham_result = self.db.search_vipham(
                 mabandoc=vipham_info["mabandoc"],
                 maadmin=vipham_info["maadmin"],
-                noidung=vipham_info["noidung"]
+                noidung=vipham_info["noidung"],
+                tinhtrang=vipham_info["tinhtrang"],
+                tienphat=vipham_info["tienphat"]
             )
 
             self.show_data(vipham_result)
@@ -229,7 +237,9 @@ class ql_vipham(QMainWindow):
                 mavipham=self.MAVIPHAM,
                 mabandoc=new_vipham_info["mabandoc"],
                 maadmin=new_vipham_info["maadmin"],
-                noidung=new_vipham_info["noidung"]
+                noidung=new_vipham_info["noidung"],
+                tienphat=new_vipham_info["tienphat"],
+                tinhtrang=new_vipham_info["tinhtrang"]
             )
             QMessageBox.information(
                 self, "Successful", "Cập nhật vi phạm thành công.", QMessageBox.StandardButton.Ok)
@@ -247,9 +257,20 @@ class ql_vipham(QMainWindow):
     def clear_info(self):
         self.maRow.clear()
         self.soLuongRow.clear()
+
         self.maBanDoc.clear()
+        self.timBanDoc.clear()
+        self.fill_search_bandoc_combo_box()
+        self.maBanDoc.setCurrentIndex(-1)
+
         self.maAdmin.clear()
+        self.timAdmin.clear()
+        self.fill_search_admin_combo_box()
+        self.maAdmin.setCurrentIndex(-1)
+
         self.noidung.clear()
+        self.tienPhat.clear()
+        self.tinhTrang.setCurrentIndex(-1)
 
     def chon_info(self):
         select_row = self.result_table.currentRow()
@@ -260,10 +281,16 @@ class ql_vipham(QMainWindow):
             mabandoc = self.result_table.item(select_row, 1).text().strip()
             maadmin = self.result_table.item(select_row, 2).text().strip()
             noidung = self.result_table.item(select_row, 3).text().strip()
+            tienphat = self.result_table.item(select_row, 4).text().strip()
+            tinhtrang = self.result_table.item(select_row, 5).text().strip()
 
             self.maBanDoc.setCurrentText(mabandoc)
+            self.timBanDoc.setText(mabandoc)
             self.maAdmin.setCurrentText(maadmin)
+            self.timAdmin.setText(maadmin)
             self.noidung.setText(noidung)
+            self.tienPhat.setText(tienphat)
+            self.tinhTrang.setCurrentText(tinhtrang)
         else:
             QMessageBox.information(
                 self, "Lỗi", "Vui lòng chọn một dòng trên bảng.", QMessageBox.StandardButton.Ok)
@@ -302,11 +329,15 @@ class ql_vipham(QMainWindow):
         mabandoc = self.maBanDoc.itemData(self.maBanDoc.currentIndex())
         maadmin = self.maAdmin.itemData(self.maAdmin.currentIndex())
         noidung = self.noidung.text().strip()
+        tienphat = self.tienPhat.text()
+        tinhtrang = self.tinhTrang.currentText()
 
         vipham_info = {
             "mabandoc": mabandoc,
             "maadmin": maadmin,
-            "noidung": noidung
+            "noidung": noidung,
+            "tienphat": tienphat,
+            "tinhtrang": tinhtrang
         }
 
         return vipham_info
@@ -320,9 +351,11 @@ class ql_vipham(QMainWindow):
             for row, info in enumerate(result):
                 info_list = [
                     info["MAVIPHAM"],
-                    info["MABANDOC"],
-                    info["MAADMIN"],
+                    info["HOTEN"] + " #" + str(info["MABANDOC"]),
+                    info["USERNAME"] + " #" + str(info["MAADMIN"]),
                     info["NOIDUNG"],
+                    info["TIENPHAT"],
+                    info["TINHTRANG"],
                     info["NGAYTHEM"],
                 ]
 

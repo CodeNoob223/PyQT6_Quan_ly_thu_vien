@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>760</width>
-    <height>474</height>
+    <height>456</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>icon/donga.jpg</normaloff>icon/donga.jpg</iconset>
+    <normaloff>../icon/donga.jpg</normaloff>../icon/donga.jpg</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -33,7 +33,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>C:/Users/nguye/OneDrive/Hình ảnh/TOTO-100-scaled.jpg</pixmap>
+    <pixmap>TOTO-100-scaled.jpg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -59,9 +59,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>60</x>
       <y>20</y>
-      <width>531</width>
+      <width>631</width>
       <height>41</height>
      </rect>
     </property>
@@ -79,96 +79,73 @@
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="sach_pushButton">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>405</y>
-     <width>171</width>
-     <height>23</height>
+     <y>90</y>
+     <width>181</width>
+     <height>351</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Quản lý sách</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="viPham_pushButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>307</y>
-     <width>171</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Quản lý vi phạm</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="tacGia_pushButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>209</y>
-     <width>171</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Quản lý tác giả</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="theLoai_pushButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>356</y>
-     <width>171</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Quản lý thể loại</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="muonTra_pushButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>111</y>
-     <width>171</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Lịch sử mượn trả</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="admin_pushButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>258</y>
-     <width>171</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Quản lý Admin</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="banDoc_pushButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>160</y>
-     <width>171</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Quản lý bạn đọc</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="muonTra_pushButton">
+      <property name="text">
+       <string>Lịch sử mượn trả</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="banDoc_pushButton">
+      <property name="text">
+       <string>Quản lý bạn đọc</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="tacGia_pushButton">
+      <property name="text">
+       <string>Quản lý tác giả</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="admin_pushButton">
+      <property name="text">
+       <string>Quản lý Admin</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="viPham_pushButton">
+      <property name="text">
+       <string>Quản lý vi phạm</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="theLoai_pushButton">
+      <property name="text">
+       <string>Quản lý thể loại</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sach_pushButton">
+      <property name="text">
+       <string>Quản lý sách</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="thongKe_pushButton">
+      <property name="text">
+       <string>Thống kê</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

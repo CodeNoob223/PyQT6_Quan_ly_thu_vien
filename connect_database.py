@@ -1,12 +1,13 @@
 import mysql.connector
 
+
 class ConnectDatabase:
     def __init__(self):
         self.host = 'localhost'
         self.port = 3306
         self.database = 'ql_thuvien'
         self.user = 'root'
-        self.password = ''
+        self.password = '1262003'
         self.dbname = 'ql_thuvien'
         self.con = None
         self.cursor = None
@@ -168,13 +169,13 @@ class ConnectDatabase:
         finally:
             self.con.close()
 
-    def search_the_muon_tra(self, maTheMuon : int = None, 
-                            maBanDoc : str = None, 
-                            maAdmin : str = None, 
-                            ngayMuon : str = None, 
-                            ngayTra : str = None, 
-                            tinhTrang : str = None, 
-                            sachMuon : list[str] = None):
+    def search_the_muon_tra(self, maTheMuon: int = None,
+                            maBanDoc: str = None,
+                            maAdmin: str = None,
+                            ngayMuon: str = None,
+                            ngayTra: str = None,
+                            tinhTrang: str = None,
+                            sachMuon: list[str] = None):
         self.connect_db()
         condition = ""
 
@@ -216,7 +217,7 @@ class ConnectDatabase:
             self.con.commit()
 
             rowid = self.cursor.lastrowid
-            
+
             for maSach in sachMuon:
                 self.add_muon_sach(maSach, rowid, ngayMuon, ngayTra)
 
@@ -241,6 +242,27 @@ class ConnectDatabase:
         finally:
             self.con.close()
 
+    def hoanthanh_themuon(self, maTheMuon, ngayTra):
+        self.connect_db()
+
+        sql = f"UPDATE `themuontra` SET `NGAYTRA`= '{ngayTra}', `TINHTRANG`='Đã trả',`NGAYCAPNHAT`= NOW() WHERE MATHEMUON = {maTheMuon}"
+        try:
+            self.cursor.execute(sql)
+            self.con.commit()
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+        
+        sql = f"UPDATE `sach_muon` SET `NGAYTRA`= '{ngayTra}', `TINHTRANG`='Đã trả' WHERE MATHEMUON = {maTheMuon}"
+        try:
+            self.cursor.execute(sql)
+            self.con.commit()
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+        finally:
+            self.con.close()
+
     def delete_the_muon(self, maTheMuon):
         self.connect_db()
 
@@ -256,7 +278,7 @@ class ConnectDatabase:
         finally:
             self.con.close()
 
-    def add_muon_sach(self, maSach : int, maTheMuon : int, ngayMuon: str, ngayTra: str):
+    def add_muon_sach(self, maSach: int, maTheMuon: int, ngayMuon: str, ngayTra: str):
         self.connect_db()
 
         sql = f"INSERT INTO sach_muon(MASACH, MATHEMUON, NGAYMUON, NGAYTRA) VALUES ({maSach},{maTheMuon}, '{ngayMuon}', '{ngayTra}')"
@@ -286,8 +308,8 @@ class ConnectDatabase:
             return E
         finally:
             self.con.close()
-    
-    def update_muon_sach(self, maSach, maTheMuon, tinhTrang = "Đã trả"):
+
+    def update_muon_sach(self, maSach, maTheMuon, tinhTrang="Đã trả"):
         self.connect_db()
 
         sql = f"UPDATE sach_muon SET TINHTRANG = '{tinhTrang}', NGAYTRA = NOW() WHERE MASACH = {maSach} and MATHEMUON = {maTheMuon}"
@@ -315,6 +337,7 @@ class ConnectDatabase:
         finally:
             self.con.close()
     # tang so luong sach
+
     def inc_sach(self, maSach: int):
         self.connect_db()
         sql = f"UPDATE `sach` SET `SOLUONG`= SOLUONG + 1 WHERE MASACH = {maSach}"
@@ -470,11 +493,26 @@ class ConnectDatabase:
         finally:
             self.con.close()
 
-    def update_vipham(self,mavipham, mabandoc, maadmin, noidung):
+    def update_vipham(self, mavipham, mabandoc, maadmin, noidung, tienphat, tinhtrang):
         self.connect_db()
 
         sql = f"""
-        UPDATE `vipham` SET `MABANDOC`={mabandoc},`MAADMIN`={maadmin},`NOIDUNG`='{noidung}', `NGAYCAPNHAT`= NOW() WHERE `MAVIPHAM`={mavipham}
+        UPDATE `vipham` SET `MABANDOC`={mabandoc},`MAADMIN`={maadmin},`NOIDUNG`='{noidung}', TIENPHAT = '{tienphat}', TINHTRANG = '{tinhtrang}' WHERE `MAVIPHAM`={mavipham}
+    """
+        try:
+            self.cursor.execute(sql)
+            self.con.commit()
+        except Exception as E:
+            self.con.rollback()
+            return E
+        finally:
+            self.con.close()
+
+    def nop_phat(self, mavipham, tienphat):
+        self.connect_db()
+
+        sql = f"""
+        UPDATE `vipham` SET TIENPHAT = '{tienphat}', TINHTRANG = 'Đã nộp phạt' WHERE `MAVIPHAM`={mavipham}
     """
         try:
             self.cursor.execute(sql)
@@ -499,7 +537,7 @@ class ConnectDatabase:
         finally:
             self.con.close()
 
-    def search_vipham(self, mavipham=None, mabandoc=None, maadmin=None, noidung=None):
+    def search_vipham(self, mavipham=None, mabandoc=None, maadmin=None, noidung=None, tinhtrang=None, tienphat=None):
         self.connect_db()
         condition = ""
         if mavipham:
@@ -510,9 +548,13 @@ class ConnectDatabase:
             condition += f" AND maadmin = {maadmin} "
         if noidung:
             condition += f" AND noidung LIKE '%{noidung}%' "
+        if tinhtrang:
+            condition += f" AND tinhtrang = '{tinhtrang}' "
+        if tienphat:
+            condition += f" AND tienphat >= {tienphat} "
 
-        sql = f"SELECT * FROM `vipham` WHERE 1"
-        try: 
+        sql = f"SELECT vipham.MAVIPHAM, vipham.MABANDOC, vipham.MAADMIN, vipham.NOIDUNG, vipham.TIENPHAT, vipham.TINHTRANG, vipham.NGAYTHEM, bandoc.HOTEN, admin.USERNAME FROM vipham JOIN bandoc ON bandoc.MABANDOC = vipham.MABANDOC JOIN admin ON admin.MAADMIN = vipham.MAADMIN WHERE 1 "
+        try:
             # Execute the SQL query for searching information
             self.cursor.execute(sql + condition)
             result = self.cursor.fetchall()
@@ -661,14 +703,12 @@ class ConnectDatabase:
         finally:
             self.con.close()
 
-        
     def check_login(self, username, matkhau):
         self.connect_db()
         query = "SELECT * FROM admin WHERE username = %s AND matkhau = %s"
         self.cursor.execute(query, (username, matkhau))
         result = self.cursor.fetchone()
         return result is not None
-
 
     def get_all_role(self):
         self.connect_db()
@@ -683,4 +723,69 @@ class ConnectDatabase:
             return E
         finally:
             self.con.close()
-    
+
+    def get_all_so_luong(self):
+        self.connect_db()
+        data = {}
+        data["sach"] = 0
+        data["bandoc"] = 0
+        data["tacgia"] = 0
+        data["theloai"] = 0
+        data["themuontra"] = 0
+        data["vipham"] = 0
+        try:
+            sql = f"SELECT COUNT(*) FROM `sach`"
+            self.cursor.execute(sql)
+            result = self.cursor.fetchone()
+            data["sach"] = result["COUNT(*)"]
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+
+        try:
+            sql = f"SELECT COUNT(*) FROM `bandoc`"
+            self.cursor.execute(sql)
+            result = self.cursor.fetchone()
+            data["bandoc"] = result["COUNT(*)"]
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+
+        try:
+            sql = f"SELECT COUNT(*) FROM `tacgia`"
+            self.cursor.execute(sql)
+            result = self.cursor.fetchone()
+            data["tacgia"] = result["COUNT(*)"]
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+        
+        try:
+            sql = f"SELECT COUNT(*) FROM `theloai`"
+            self.cursor.execute(sql)
+            result = self.cursor.fetchone()
+            data["theloai"] = result["COUNT(*)"]
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+        
+        try:
+            sql = f"SELECT COUNT(*) FROM `sach_muon`"
+            self.cursor.execute(sql)
+            result = self.cursor.fetchone()
+            data["themuontra"] = result["COUNT(*)"]
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+
+        try:
+            sql = f"SELECT COUNT(*) FROM `vipham`"
+            self.cursor.execute(sql)
+            result = self.cursor.fetchone()
+            data["vipham"] = result["COUNT(*)"]
+            return data
+        except Exception as E:
+            self.con.rollback()
+            print(E)
+        finally:
+            self.con.close()

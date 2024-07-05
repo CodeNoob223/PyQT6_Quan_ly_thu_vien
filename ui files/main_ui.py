@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file '.\ui files\main.ui'
+# Form implementation generated from reading ui file 'c:\Users\QUAN\Documents\btl python\PyQT6\ql_sach\ui files\main.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.2
 #
@@ -14,13 +14,13 @@ class Ui_mainWindow(object):
         mainWindow.setObjectName("mainWindow")
         mainWindow.resize(760, 456)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\ui files\\../icon/donga.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("c:\\Users\\QUAN\\Documents\\btl python\\PyQT6\\ql_sach\\ui files\\../icon/donga.jpg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         mainWindow.setWindowIcon(icon)
         mainWindow.setStyleSheet("")
         self.label_2 = QtWidgets.QLabel(parent=mainWindow)
         self.label_2.setGeometry(QtCore.QRect(250, 90, 461, 351))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap(".\\ui files\\TOTO-100-scaled.jpg"))
+        self.label_2.setPixmap(QtGui.QPixmap("c:\\Users\\QUAN\\Documents\\btl python\\PyQT6\\ql_sach\\ui files\\TOTO-100-scaled.jpg"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
         self.groupBox = QtWidgets.QGroupBox(parent=mainWindow)
@@ -84,13 +84,3 @@ class Ui_mainWindow(object):
         self.theLoai_pushButton.setText(_translate("mainWindow", "Quản lý thể loại"))
         self.sach_pushButton.setText(_translate("mainWindow", "Quản lý sách"))
         self.thongKe_pushButton.setText(_translate("mainWindow", "Thống kê"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    mainWindow = QtWidgets.QWidget()
-    ui = Ui_mainWindow()
-    ui.setupUi(mainWindow)
-    mainWindow.show()
-    sys.exit(app.exec())

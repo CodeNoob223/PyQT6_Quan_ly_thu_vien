@@ -540,10 +540,11 @@ class FormQLMuonTra(QMainWindow):
                 return
 
             for item in listItems:
-                item.tinhTrang = "Đã trả"
-                item.setText(item.tenSach + item.ngayMuonTra + item.tinhTrang)
-                self.db.update_muon_sach(
-                    maSach=item.value, maTheMuon=self.maTheMuon, tinhTrang="Đã trả")
+                if item.tinhTrang != "Đã trả":
+                    item.tinhTrang = "Đã trả"
+                    item.setText(item.tenSach + item.ngayMuonTra + item.tinhTrang)
+                    self.db.update_muon_sach(
+                        maSach=item.value, maTheMuon=self.maTheMuon, tinhTrang="Đã trả")
 
             # Kiem tra lieu tat ca sach da duoc tra chua?
             soSachMuon = len(self.sachMuon_list)
