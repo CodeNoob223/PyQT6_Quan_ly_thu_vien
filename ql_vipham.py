@@ -331,7 +331,7 @@ class ql_vipham(QMainWindow):
     def get_data_from_inputs(self):
         mabandoc = self.timBanDoc.text().split("#")
 
-        if len(mabandoc) < 2:
+        if len(mabandoc) > 1:
             mabandoc = mabandoc[1].strip()
         else:
             QMessageBox.information(
@@ -340,7 +340,7 @@ class ql_vipham(QMainWindow):
         
         maadmin = self.timAdmin.text().split("#")
 
-        if len(maadmin) < 2:
+        if len(maadmin) > 1:
             maadmin = maadmin[1].strip()
         else:
             QMessageBox.information(
