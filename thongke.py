@@ -96,6 +96,7 @@ class FormThongKe(QMainWindow):
             ngayTra = self.ngayTra.text()
             self.db.hoanthanh_themuon(maTheMuon, ngayTra)
             self.fill_table_sach_chua_tra()
+            self.maTheMuon.clear()
         else:
             QMessageBox.information(
                 self, "Cảnh báo", "Chọn thẻ mượn trước!", QMessageBox.StandardButton.Ok)
@@ -110,6 +111,7 @@ class FormThongKe(QMainWindow):
             if tienPhat:
                 self.db.nop_phat(maViPham, tienPhat)
                 self.fill_table_vi_pham()
+                self.maViPham.clear()
             else:
                 QMessageBox.information(
                     self, "Cảnh báo", "Phải nhập tiền phạt!", QMessageBox.StandardButton.Ok)
