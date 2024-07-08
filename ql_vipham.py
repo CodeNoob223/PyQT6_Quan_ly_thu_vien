@@ -326,8 +326,8 @@ class ql_vipham(QMainWindow):
             button.setProperty("enabled", True)
 
     def get_data_from_inputs(self):
-        mabandoc = self.maBanDoc.itemData(self.maBanDoc.currentIndex())
-        maadmin = self.maAdmin.itemData(self.maAdmin.currentIndex())
+        mabandoc = self.timBanDoc.text().split("#")[1].strip()
+        maadmin = self.timAdmin.text().split("#")[1].strip()
         noidung = self.noidung.text().strip()
         tienphat = self.tienPhat.text()
         tinhtrang = self.tinhTrang.currentText()
