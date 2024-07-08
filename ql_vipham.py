@@ -329,7 +329,7 @@ class ql_vipham(QMainWindow):
             button.setProperty("enabled", True)
 
     def get_data_from_inputs(self):
-        mabandoc = self.timBanDoc.text().split("#")
+        mabandoc = self.timBanDoc.text().strip().split("#")
 
         if len(mabandoc) > 1:
             mabandoc = mabandoc[1].strip()
@@ -338,7 +338,7 @@ class ql_vipham(QMainWindow):
                 self, "Lỗi", "Vui lòng nhập mã bạn đọc!", QMessageBox.StandardButton.Ok)
             return
         
-        maadmin = self.timAdmin.text().split("#")
+        maadmin = self.timAdmin.text().strip().split("#")
 
         if len(maadmin) > 1:
             maadmin = maadmin[1].strip()
