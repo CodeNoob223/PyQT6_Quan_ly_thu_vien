@@ -478,11 +478,11 @@ class ConnectDatabase:
         finally:
             self.con.close()
 
-    def add_vipham(self, mabandoc, maadmin, noidung):
+    def add_vipham(self, mabandoc, maadmin, noidung, tienphat, tinhtrang):
         self.connect_db()
 
         sql = f"""
-        INSERT INTO `vipham`(`MABANDOC`, `MAADMIN`, `NOIDUNG`, `NGAYTHEM`) VALUES ({mabandoc},{maadmin},'{noidung}',NOW())
+        INSERT INTO `vipham`(`MABANDOC`, `MAADMIN`, `NOIDUNG`, `TIENPHAT`, `TINHTRANG`, `NGAYTHEM`) VALUES ({mabandoc},{maadmin},'{noidung}','{tienphat}','{tinhtrang}',NOW())
     """
         try:
             self.cursor.execute(sql)

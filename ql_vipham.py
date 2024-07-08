@@ -188,7 +188,10 @@ class ql_vipham(QMainWindow):
 
             add_result = self.db.add_vipham(mabandoc=vipham_info["mabandoc"],
                                             maadmin=vipham_info["maadmin"],
-                                            noidung=vipham_info["noidung"])
+                                            noidung=vipham_info["noidung"],
+                                            tinhtrang=vipham_info["tinhtrang"],
+                                            tienphat=vipham_info["tienphat"]
+                                            )
             QMessageBox.information(
                 self, "Successful", "Thêm vi phạm thành công.", QMessageBox.StandardButton.Ok)
 
@@ -326,8 +329,24 @@ class ql_vipham(QMainWindow):
             button.setProperty("enabled", True)
 
     def get_data_from_inputs(self):
-        mabandoc = self.timBanDoc.text().split("#")[1].strip()
-        maadmin = self.timAdmin.text().split("#")[1].strip()
+        mabandoc = self.timBanDoc.text().split("#")
+
+        if len(mabandoc) < 2:
+            mabandoc = mabandoc[1].strip()
+        else:
+            QMessageBox.information(
+                self, "Lỗi", "Vui lòng nhập mã bạn đọc!", QMessageBox.StandardButton.Ok)
+            return
+        
+        maadmin = self.timAdmin.text().split("#")
+
+        if len(maadmin) < 2:
+            maadmin = maadmin[1].strip()
+        else:
+            QMessageBox.information(
+                self, "Lỗi", "Vui lòng nhập mã thủ thư!", QMessageBox.StandardButton.Ok)
+            return
+        
         noidung = self.noidung.text().strip()
         tienphat = self.tienPhat.text()
         tinhtrang = self.tinhTrang.currentText()
